@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+tags
+.tags
+.atom-build.json
+.ipynb_checkpoints
+/taxidata/
