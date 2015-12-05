@@ -1,4 +1,5 @@
 import argparse
+import os.path
 from pathlib import Path
 import re
 import zipfile
@@ -16,7 +17,8 @@ parser.add_argument('--delete', action='store_true',
     help='Before inserting, delete all rows in the database from this file.')
     
 def get_password():
-    with Path('~/.pgpass').expanduser().open('r') as f:
+    home = Path(os.path.expanduser('~'))
+    with (home / '.pgpass').open('r') as f:
         for line in f:
             host, port, database, user, password = line.strip().split(':')
             if database == 'taxis' and user == 'wendell':
